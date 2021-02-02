@@ -4,21 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
-import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import vehicle.types.Airplane;
@@ -278,39 +271,8 @@ public class Controller {
 	
 	private void initialiseVehicle(String vehicleName) {
 		this.vehicleName = vehicleName;
-		if(vehicleName.equals("Boat")) {
-			vehicle = new Boat("Apollo ");
-		}
-		else if(vehicleName.equals("Ship")) {
-			vehicle = new Ship("Cruizz");
-		}
-		else if(vehicleName.equals("Truck")) {
-			vehicle = new Truck("Ford F-650");
-		}
-		else if(vehicleName.equals("Motorcycle")) {
-			vehicle = new Motorcycle("Suzuki");
-		}
-		else if(vehicleName.equals("Bus")) {
-			vehicle = new Bus("Aero");
-		}
-		else if(vehicleName.equals("Car")) {
-			vehicle = new Car("BMW");
-		}
-		else if(vehicleName.equals("Bicycle")) {
-			vehicle = new Bicycle("A-bike");
-		}
-		else if(vehicleName.equals("Helicopter")) {
-			vehicle = new Helicopter("Eurocopter");
-		}
-		else if(vehicleName.equals("Airplane")) {
-			vehicle = new Airplane("BA");
-		}
-		else if(vehicleName.equals("Tram")) {
-			vehicle = new Tram("EdinburghTram");
-		}
-		else if(vehicleName.equals("Train")) {
-			vehicle = new Train("Virgin",4);
-		}	 	
+		// move initializeVehicle to Simulator class
+		this.vehicle = Vehicle.initialiseVehicle(vehicleName);
 	}
 
 

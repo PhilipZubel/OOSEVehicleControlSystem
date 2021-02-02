@@ -65,6 +65,7 @@ public class Simulator extends JPanel {
 		return currentvelocity;
 	}
 	
+	// getter and setter added for current velocity
 	public int getCurrentVelocity() {
 		return this.currentvelocity;
 	}
