@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -24,10 +25,12 @@ public class Simulator extends JPanel {
 	private int currentvelocity;
 	private int maximumvelocity = 300;
 	private String vehicleName;
+	//private JLabel speedLabel;
 	
 	public Simulator(int currentVelocity, String vehicleName) {
 		this.currentvelocity = currentVelocity;
 		this.vehicleName = vehicleName.toLowerCase();
+		//this.speedLabel = speedLabel;
 		
 		setDisplayObject();
 		try {	
