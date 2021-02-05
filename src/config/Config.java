@@ -16,11 +16,10 @@ public abstract class Config {
 
 	private static LinkedList<JButton> buttons = new LinkedList<JButton>();
 	
-	protected static String[] vehicles = { "Boat", "Ship", "Truck", "Motorcycle", "Bus", "Car", "Bicycle", "Helicopter", "Airplane", "Tram", "Train"};
-	protected static Vehicle vehicle = null;
+	private static String[] vehicles = { "Boat", "Ship", "Truck", "Motorcycle", "Bus", "Car", "Bicycle", "Helicopter", "Airplane", "Tram", "Train"};
 	protected static JLabel speedlabel;
+	private static Vehicle vehicle = null;
 	protected static Simulator SimulationPane = null;
-	
 	
 	public static Config currentConfig;
 	
@@ -36,7 +35,7 @@ public abstract class Config {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+
 				buttonClicked();
 				
 			}
@@ -44,25 +43,7 @@ public abstract class Config {
 		});
 	}
 	
-	public static void setSpeedlabel(JLabel speedlabel) {
-		Config.speedlabel = speedlabel;
-	}
-	
-	public static String[] getVehicleArray() {
-		return vehicles;
-	}
-	
-	public static void initialiseVehicle(String vehicleName) {
-		// move initializeVehicle to Vehicle class
-		vehicle = Vehicle.initialiseVehicle(vehicleName);
-	}
-	
-	protected void setSimulator(Simulator SimulationPane) {
-		Config.SimulationPane = SimulationPane;
-	}
-	
 	protected abstract void buttonClicked();
-	
 	
 	protected void changeButtonColor(JButton button) {
 
@@ -75,5 +56,37 @@ public abstract class Config {
 		}
 		
 	}
+
+	public static void initialiseVehicle(String vehicleName) {
+		vehicle = VehicleManager.initialiseVehicle(vehicleName);
+	}
+	
+	protected boolean isVehicleNull() {
+		return vehicle == null;
+	}
+	
+	protected String getVehiclePrintSpeed() {
+		return vehicle.printSpeed(); 
+	}
+	
+	protected void setVehicleSpeed(int speed) {
+		vehicle.setCurrentSpeed(speed);
+	}
+
+	public static String[] getVehicleArray() {
+		return vehicles;
+	}
+	
+	protected void setSimulator(Simulator SimulationPane) {
+		Config.SimulationPane = SimulationPane;
+	}
+	
+	public static void setSpeedlabel(JLabel speedlabel) {
+		Config.speedlabel = speedlabel;
+	}
+	
+	
+	
+	
 
 }

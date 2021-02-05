@@ -16,21 +16,22 @@ public class Start extends Config{
 		super(button);
 		this.combobox = combobox;
 		this.frame = frame;
-		// TODO Auto-generated constructor stub
+		VehicleManager.populateVehicles();
+		
 	}
 
 	@Override
 	public void buttonClicked() {
-		// TODO Auto-generated method stub
+
 		currentConfig = this;
 		
 		String vehicleName = "Bicycle";
 		int selectedIndex = combobox.getSelectedIndex();
-		vehicleName = vehicles[selectedIndex];
+		vehicleName = getVehicleArray()[selectedIndex];
 		
-		if(vehicle == null) {
+		if(isVehicleNull()) {
 			initialiseVehicle(vehicleName);
-			speedlabel.setText(vehicle.printSpeed());
+			speedlabel.setText(getVehiclePrintSpeed());
 		}
 		int curVelocity = 1;
 		if(Config.SimulationPane !=null) {

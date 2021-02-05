@@ -1,7 +1,5 @@
 package config;
 
-import java.awt.Color;
-
 import javax.swing.JButton;
 
 public class Stop extends Config{
@@ -17,11 +15,10 @@ public class Stop extends Config{
 		
 		changeButtonColor(this.button);
 		
-		
 		int currentVelocity = 1;
 		SimulationPane.setCurrentVelocity(currentVelocity);
-		vehicle.setCurrentSpeed(currentVelocity);
-		speedlabel.setText(vehicle.printSpeed());
+		setVehicleSpeed(currentVelocity);
+		speedlabel.setText(getVehiclePrintSpeed());
 		
 	}
 

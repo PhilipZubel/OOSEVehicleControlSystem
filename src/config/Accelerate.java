@@ -1,8 +1,6 @@
 package config;
 
 
-import java.awt.Color;
-
 import javax.swing.JButton;
 
 public class Accelerate extends Config {
@@ -29,10 +27,9 @@ public class Accelerate extends Config {
 					while(currentConfig == getThis()) {
 						Thread.sleep(2 * 1000);
 						
-						// updated curSpeed by moving the calculations to updateSpeed class
 						int curSpeed = SimulationPane.updateSpeed(1);
-						vehicle.setCurrentSpeed(curSpeed);
-						speedlabel.setText(vehicle.printSpeed());
+						setVehicleSpeed(curSpeed);
+						speedlabel.setText(getVehiclePrintSpeed());
 														    
 					}
 				}

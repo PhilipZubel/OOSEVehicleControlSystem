@@ -12,43 +12,6 @@ public abstract class Vehicle {
 	
 	public abstract String printSpeed();
 	
-	public static Vehicle initialiseVehicle(String vehicleName) {
-		if(vehicleName.equals("Boat")) {
-			return new Boat("Apollo ");
-		}
-		else if(vehicleName.equals("Ship")) {
-			return new Ship("Cruizz");
-		}
-		else if(vehicleName.equals("Truck")) {
-			return new Truck("Ford F-650");
-		}
-		else if(vehicleName.equals("Motorcycle")) {
-			return new Motorcycle("Suzuki");
-		}
-		else if(vehicleName.equals("Bus")) {
-			return new Bus("Aero");
-		}
-		else if(vehicleName.equals("Car")) {
-			return new Car("BMW");
-		}
-		else if(vehicleName.equals("Bicycle")) {
-			return new Bicycle("A-bike");
-		}
-		else if(vehicleName.equals("Helicopter")) {
-			return new Helicopter("Eurocopter");
-		}
-		else if(vehicleName.equals("Airplane")) {
-			return new Airplane("BA");
-		}
-		else if(vehicleName.equals("Tram")) {
-			return new Tram("EdinburghTram");
-		}
-		else if(vehicleName.equals("Train")) {
-			return new Train("Virgin",4);
-		}	
-		return null;
-	}
-	
 	public void stop() {
 		setCurrentSpeed(0);
 		setDirection(Direction.STATIONARY);
