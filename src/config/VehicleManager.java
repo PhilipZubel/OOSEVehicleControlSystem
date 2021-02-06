@@ -17,9 +17,17 @@ import vehicle.types.Vehicle;
 
 public class VehicleManager {
 	
-	private static HashMap<String, Vehicle> vehicles = new HashMap<>();
+	private HashMap<String, Vehicle> vehicles = new HashMap<>();
+	private String[] vehicleNames;
 	
-	public static void populateVehicles() {
+	private Vehicle currentVehicle = null;
+	
+	public VehicleManager() {
+		populateVehicles();
+	}
+	
+	private void populateVehicles() {
+		
 		vehicles.put("Boat", new Boat("Apollo"));
 		vehicles.put("Ship", new Ship("Cruizz"));
 		vehicles.put("Truck", new Truck("Ford F-650"));
@@ -36,8 +44,24 @@ public class VehicleManager {
 	
 	
 	
-	public static Vehicle initialiseVehicle(String vehicleName) {
-		return vehicles.get(vehicleName);
+	public void initialiseVehicle(String vehicleName) {
+		currentVehicle = vehicles.get(vehicleName);
+	}
+	
+	public String printVehicleSpeed() {
+		return currentVehicle.printSpeed();
+	}
+	
+	public void setVehicleSpeed(int speed) {
+		currentVehicle.setCurrentSpeed(speed);
+	}
+	
+	public boolean isVehicleNull() {
+		return currentVehicle == null;
+	}
+
+	public String[] getVehicleNames() {
+		return vehicleNames;
 	}
 
 }

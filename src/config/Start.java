@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import oose.vcs.Simulator;
 
 public class Start extends Config{
+	
 	private JComboBox<String> combobox;
 	private JFrame frame;
 	
@@ -16,8 +17,6 @@ public class Start extends Config{
 		super(button);
 		this.combobox = combobox;
 		this.frame = frame;
-		VehicleManager.populateVehicles();
-		
 	}
 
 	@Override
@@ -25,9 +24,8 @@ public class Start extends Config{
 
 		currentConfig = this;
 		
-		String vehicleName = "Bicycle";
 		int selectedIndex = combobox.getSelectedIndex();
-		vehicleName = getVehicleArray()[selectedIndex];
+		String vehicleName = getVehicleArray()[selectedIndex];
 		
 		if(isVehicleNull()) {
 			initialiseVehicle(vehicleName);

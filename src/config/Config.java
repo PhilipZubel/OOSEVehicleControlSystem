@@ -17,20 +17,22 @@ public abstract class Config {
 	private static LinkedList<JButton> buttons = new LinkedList<JButton>();
 	
 	private static String[] vehicles = { "Boat", "Ship", "Truck", "Motorcycle", "Bus", "Car", "Bicycle", "Helicopter", "Airplane", "Tram", "Train"};
+	
 	protected static JLabel speedlabel;
-	private static Vehicle vehicle = null;
+	protected static VehicleManager vehicleManager = new VehicleManager();
 	protected static Simulator SimulationPane = null;
 	
-	public static Config currentConfig;
+	protected static Config currentConfig;
 	
 	protected JButton button;
 	protected String actionName;
 	
 	public Config(JButton button) {
-		this.button = button;
+		button.setBackground(Color.lightGray);
 		this.actionName = button.getText();
+		this.button = button;
 		buttons.add(button);
-		this.button.setBackground(Color.lightGray);
+		
 		this.button.addActionListener(new ActionListener() {
 
 			@Override
@@ -45,9 +47,9 @@ public abstract class Config {
 	
 	protected abstract void buttonClicked();
 	
-	protected void changeButtonColor(JButton button) {
+	protected static void changeButtonColor(JButton button) {
 
-		for (JButton b : Config.buttons) {
+		for (JButton b : buttons) {
 			if (b == button) {
 				b.setBackground(Color.green);
 			} else {
@@ -58,19 +60,19 @@ public abstract class Config {
 	}
 
 	public static void initialiseVehicle(String vehicleName) {
-		vehicle = VehicleManager.initialiseVehicle(vehicleName);
+		vehicleManager.initialiseVehicle(vehicleName);
 	}
 	
 	protected boolean isVehicleNull() {
-		return vehicle == null;
+		return vehicleManager.isVehicleNull();
 	}
 	
 	protected String getVehiclePrintSpeed() {
-		return vehicle.printSpeed(); 
+		return vehicleManager.printVehicleSpeed(); 
 	}
 	
 	protected void setVehicleSpeed(int speed) {
-		vehicle.setCurrentSpeed(speed);
+		vehicleManager.setVehicleSpeed(speed);
 	}
 
 	public static String[] getVehicleArray() {

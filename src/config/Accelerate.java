@@ -13,7 +13,6 @@ public class Accelerate extends Config {
 		return this;
 	}
 	
-	
 	@Override
 	public void buttonClicked() {
 		
